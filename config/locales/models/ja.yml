@@ -1,0 +1,10 @@
+ja:
+  activerecord:
+    models:
+      study: スタディ
+    attributes:
+      study:
+        title: カテゴリ
+        content: 内容
+        time: 時間
+        date: 日付

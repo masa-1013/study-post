@@ -61,3 +61,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'bootstrap', '~> 4.3.1'
 gem 'pry-byebug', group: :development
+gem 'easy_settings'
+gem 'ruby-debug-ide'
+gem 'debase'
+gem 'rails-i18n'

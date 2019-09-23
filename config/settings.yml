@@ -1,0 +1,15 @@
+default: &default
+  study_create_success: 勉強記録を登録しました。
+  study_create_fail: 勉強記録の登録に失敗しました。
+  study_update_success: 勉強記録を更新しました。
+  study_update_fail: 勉強記録の更新に失敗しました。
+  study_delete_success: 勉強記録を削除しました。
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+
+production:
+  <<: *default

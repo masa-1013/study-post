@@ -1,0 +1,29 @@
+input[type='date'] {
+  width: 600px;
+}
+
+#study_content {
+  height: 200px;
+}
+
+.study p {
+  margin-bottom: 5px;
+}
+
+.study_show_content {
+  padding: 0.5em 1em;
+  margin: 3px 0;
+  background: #f0f7ff;
+  border: dashed 2px #5b8bd0;/*点線*/
+}
+
+.study_show_header {
+  border-bottom: 1px solid #c85179;
+  border-left: 10px solid #c85179;
+  padding: 7px;
+}
+
+.navbar-brand a, .nav-link a {
+  color: black;
+  text-decoration-line: none;
+}
