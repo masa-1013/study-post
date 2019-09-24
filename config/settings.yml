@@ -4,6 +4,7 @@ default: &default
   study_update_success: 勉強記録を更新しました。
   study_update_fail: 勉強記録の更新に失敗しました。
   study_delete_success: 勉強記録を削除しました。
+  user_create_success: ユーザーの登録に成功しました。
 
 development:
   <<: *default
