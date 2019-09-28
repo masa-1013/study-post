@@ -10,6 +10,6 @@ ja:
         time: 時間
         date: 日付
       user:
-        name: 名前
+        name: ユーザー名
         password: パスワード
         password_confirmation: 確認用パスワード

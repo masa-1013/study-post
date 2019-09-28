@@ -11,7 +11,11 @@
   </head>
 
   <body>
-    <%= render "shared/nav" %>
+    <% if current_user %>
+      <%= render "shared/nav" %>
+    <% else %>
+      <%= render "shared/nav_not_login" %>
+    <% end %>
     <div class='container'>
       <%= render "layouts/flash_messages" %>
       <%= yield %>

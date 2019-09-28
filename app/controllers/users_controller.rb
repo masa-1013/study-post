@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  skip_before_action :login_required, only: [:new, :create]
+
   def show
   end
 
@@ -11,6 +13,7 @@ class UsersController < ApplicationController
 
     if @user.save
       flash[:success] = EasySettings.user_create_success
+      session[:user_id] = @user.id
       redirect_to users_show_url
     else
       render :new

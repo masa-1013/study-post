@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 2019_09_24_133251) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "admin", default: false, null: false
+    t.index ["name"], name: "index_users_on_name", unique: true
   end
 
 end
