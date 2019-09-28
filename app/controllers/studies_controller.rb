@@ -2,7 +2,7 @@ class StudiesController < ApplicationController
   before_action :set_study, only: [:show, :edit, :update, :destroy]
 
   def index
-    @studies = Study.all
+    @studies = current_user.studies
   end
 
   def show
@@ -13,7 +13,7 @@ class StudiesController < ApplicationController
   end
 
   def create
-    @study = Study.new(study_params)
+    @study = current_user.studies.new(study_params)
     if @study.save
       flash[:success] = EasySettings.study_create_success
       redirect_to @study
@@ -48,6 +48,6 @@ class StudiesController < ApplicationController
   end
 
   def set_study
-    @study = Study.find(params[:id])
+    @study = current_user.studies.find(params[:id])
   end
 end
