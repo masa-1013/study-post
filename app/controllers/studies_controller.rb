@@ -1,11 +1,12 @@
 class StudiesController < ApplicationController
-  before_action :set_study, only: [:show, :edit, :update, :destroy]
+  before_action :set_study, only: [:edit, :update, :destroy]
 
   def index
     @studies = Study.select_public_studies
   end
 
   def show
+    @study = Study.find(params[:id])
   end
 
   def new
