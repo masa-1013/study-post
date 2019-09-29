@@ -7,7 +7,7 @@ ja:
       study:
         title: カテゴリ
         content: 内容
-        time: 時間
+        time: 勉強時間
         date: 日付
       user:
         name: ユーザー名

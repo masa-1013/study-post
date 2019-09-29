@@ -6,7 +6,7 @@
         <%= f.date_field :date, value: Date.today, class: 'form-control' %>
       </div>
       <div class='form-group'>
-        <%= f.label :勉強時間 %>
+        <%= f.label :time, "勉強時間" %>
         <% if study.time.nil? %>
           <%= f.time_field :time, value: "00:00", class:'form-control' %>
         <% else %>
@@ -14,11 +14,11 @@
         <% end %>
       </div>
       <div class='form-group'>
-        <%= f.label :カテゴリ %>
-        <%= f.text_field :title, class:'form-control' %>  
+        <%= f.label :tag, "カテゴリ" %>
+        <%= f.collection_select :tag, Combmaster.all, :id, :tag_name, class:'form-control' %>  
       </div>
       <div class='form-group'>
-        <%= f.label :内容 %>
+        <%= f.label :content, "内容" %>
         <%= f.text_area :content, class:'form-control' %>  
       </div>
       <%= f.submit '投稿', class:'btn btn-primary' %>

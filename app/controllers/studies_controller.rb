@@ -47,7 +47,7 @@ class StudiesController < ApplicationController
   private 
 
   def study_params
-    params.require(:study).permit(:title, :content, :time, :date)
+    params.require(:study).permit(:tag, :content, :time, :date)
   end
 
   def set_study

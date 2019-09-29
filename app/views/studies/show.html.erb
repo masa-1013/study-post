@@ -2,7 +2,7 @@
   <div class='study_show_header'>
     <div class="row">
       <div class="col-sm-9">
-        <h4><%= current_user.name %>: <%= @study.title %></h4>
+        <h4><%= current_user.name %>: <%= Combmaster.select_tag_name(@study.tag) %></h4>
       </div>
       <div class="col-sm-3">
         <% if @study.user_id == current_user.id %>

@@ -10,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_29_042439) do
+ActiveRecord::Schema.define(version: 2019_09_29_140420) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "combmasters", force: :cascade do |t|
+    t.string "tag_name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "comments", force: :cascade do |t|
     t.text "content", null: false
@@ -26,7 +32,7 @@ ActiveRecord::Schema.define(version: 2019_09_29_042439) do
   end
 
   create_table "studies", force: :cascade do |t|
-    t.string "title", limit: 30
+    t.string "tag", limit: 3, null: false
     t.text "content"
     t.time "time", null: false
     t.date "date", null: false

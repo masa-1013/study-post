@@ -1,5 +1,5 @@
 class Study < ApplicationRecord
-  validates :title, length: { maximum: 30 }
+  validate :validate_time_not_zero
 
   belongs_to :user
   has_many :comments
@@ -14,5 +14,11 @@ class Study < ApplicationRecord
   def select_comments_and_user_name
     Comment.joins("inner join users on users.id =
       comments.user_id").select("comments.*, users.name").where("comments.study_id = ?", self.id).order(created_at: :desc)
+  end
+
+  private
+
+  def validate_time_not_zero
+    errors.add(:time, "を入力してください") if time.strftime("%H:%M") == "00:00"
   end
 end

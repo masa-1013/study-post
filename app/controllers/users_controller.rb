@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     if @user.save
       flash[:success] = EasySettings.user_create_success
       session[:user_id] = @user.id
-      redirect_to users_show_url
+      redirect_to @user
     else
       render :new
     end

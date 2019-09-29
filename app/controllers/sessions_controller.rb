@@ -5,12 +5,12 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by(name: session_params[:name])
+    @user = User.find_by(name: session_params[:name])
 
-    if user&.authenticate(session_params[:password])
-      session[:user_id] = user.id
+    if @user&.authenticate(session_params[:password])
+      session[:user_id] = @user.id
       flash[:success] = EasySettings.login_success
-      redirect_to users_show_url
+      redirect_to @user
     else
       render :new
     end

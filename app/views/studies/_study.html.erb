@@ -2,7 +2,7 @@
   <li class='list-group-item'>
     <div class="d-flex w-100 justify-content-between">
       <h5 class="mb-1">  
-        <%= link_to "#{ study.try(:name) ? study.name : current_user.name }: #{study.title}", study_path(study) %>
+        <%= link_to "#{ study.try(:name) ? study.name : current_user.name }: #{Combmaster.select_tag_name(study.tag)}", study_path(study) %>
       </h5>
       <small><%= convert_date_to_posttime(study.updated_at) %></small>
     </div>
