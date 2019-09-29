@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-sm-3">
-    <%= form_with scope: :user, url: users_edit_path, local: true do |f| %>
+    <%= form_with scope: :user, url: edit_user_path, local: true do |f| %>
       <div class="form-group">
         <%= f.label :public, '勉強記録を全ユーザーに公開する', class: "small" %>
         <%= f.check_box :public %>

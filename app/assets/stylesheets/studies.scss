@@ -19,7 +19,31 @@
   padding: 7px;
 }
 
+.study_show_header .col-sm-3 {
+  text-align: right;
+}
+
 .navbar-brand a, .nav-link a, .nav-item a{
   color: black;
   text-decoration-line: none;
+}
+
+.study_show_footer .col-sm-11 {
+  padding-right: 0px;
+}
+
+.study_show_footer .col-sm-1 {
+  padding-left: 0px;
+}
+
+.study_show_footer {
+  margin-top: 20px;
+}
+
+.comment #postTime {
+  text-align: right;
+}
+
+.fa-comment-dots {
+  margin-top: 20px;
 }

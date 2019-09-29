@@ -4,9 +4,9 @@
       <h5 class="mb-1">  
         <%= link_to "#{ study.try(:name) ? study.name : current_user.name }: #{study.title}", study_path(study) %>
       </h5>
-      <small><%= study.convert_date_to_posttime(study.updated_at) %></small>
+      <small><%= convert_date_to_posttime(study.updated_at) %></small>
     </div>
-    <p><%= study.convert_date_to_studydate(study.date) %> <%= study.convert_time_to_studytime(study.time) %></p>
+    <p><%= convert_date_to_studydate(study.date) %> <%= convert_time_to_studytime(study.time) %></p>
     <p><%= study.content %></p>
   </li>
 </div>

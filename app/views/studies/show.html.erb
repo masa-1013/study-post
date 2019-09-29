@@ -1,24 +1,55 @@
 <div class='study_show'>
   <div class='study_show_header'>
     <div class="row">
-      <div class="col-sm-10">
+      <div class="col-sm-9">
         <h4><%= current_user.name %>: <%= @study.title %></h4>
       </div>
-      <div class="col-sm-2">
+      <div class="col-sm-3">
         <% if @study.user_id == current_user.id %>
           <%= link_to "編集", edit_study_path(@study), class: "btn btn-primary mr-3" %>
           <%= link_to "削除", @study, method: :delete, data: { confirm: "削除してもよろしいですか?" }, class: "btn btn-danger" %>
         <% end %>
       </div>
     </div>
-    <small><%= @study.convert_date_to_studydate(@study.date) %></small>
+    <small><%= convert_date_to_studydate(@study.date) %></small>
   </div>
   <div class='study_show_content'>
     <%= @study.content %>
   </div>
   <div class='study_show_time'>
-    <div class='card-body far fa-clock'>
-      <%= @study.convert_time_to_studytime(@study.time) %>
+    <div class="row">
+      <div class="col-sm-2">
+        <div class='card-body far fa-clock'>
+          <%= convert_time_to_studytime(@study.time) %>
+        </div>
+      </div>
+      <div class="col-sm-10">
+        <div class="far fa-comment-dots">
+          <%= @comments.to_a.count %>
+        </div>
+      </div>
     </div>
+  </div>
+  <div id="comments">
+    <ul class="list-group">
+      <%= render @comments %>
+    </ul>
+  </div>
+  <div class="study_show_footer">
+    <footer>
+      <%= form_with model: @comment do |f| %>
+        <%= f.hidden_field :study_id, value: @study.id %>
+        <div class="row">
+          <div class="col-sm-11">
+            <div class="form-group">
+              <%= f.text_field :content, placeholder:"コメント", class:"form-control"%>
+            </div>
+          </div>
+          <div class="col-sm-1">
+            <%= f.submit "コメント", disabled: "", class:"btn btn-primary", id:"submit_button"%>
+          </div>
+        </div>
+      <% end %>
+    </footer>
   </div>
 </div>

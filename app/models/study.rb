@@ -2,6 +2,7 @@ class Study < ApplicationRecord
   validates :title, length: { maximum: 30 }
 
   belongs_to :user
+  has_many :comments
   
   #タイムラインに表示する勉強記録の取得
   def self.select_public_studies
@@ -9,18 +10,9 @@ class Study < ApplicationRecord
       users.id and users.public = true").select("studies.*, users.name").order(updated_at: :desc)
   end
 
-  #date型を勉強日時の文字列に変換
-  def convert_date_to_studydate(date)
-    date.strftime("%Y/%m/%d")
-  end
-  
-  #time型を勉強時間の文字列に変換
-  def convert_time_to_studytime(time)
-    time.strftime("%H時間 %M分")
-  end
-
-  #date型を投稿日時の文字列に変換
-  def convert_date_to_posttime(time)
-    time.strftime("%Y/%m/%d %H時間 %M分")
+  #コメント情報をユーザー名付きで取得する
+  def select_comments_and_user_name
+    Comment.joins("inner join users on users.id =
+      comments.user_id").select("comments.*, users.name").where("comments.study_id = ?", self.id).order(created_at: :desc)
   end
 end

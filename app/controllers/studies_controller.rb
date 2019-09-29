@@ -7,6 +7,8 @@ class StudiesController < ApplicationController
 
   def show
     @study = Study.find(params[:id])
+    @comments = @study.select_comments_and_user_name
+    @comment = Comment.new
   end
 
   def new

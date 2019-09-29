@@ -1,0 +1,19 @@
+<div class="comment">
+  <li class="list-group-item">
+    <div class="row">
+      <div class="col-sm-1">
+      </div>
+      <div class="col-sm-11">
+        <div class="row">
+          <div class="col-sm-9">
+            <h4><%= comment.name %></h4>
+          </div>
+          <div class="col-sm-3" id="postTime">
+            <small><%= convert_date_to_posttime(comment.created_at) %></small>
+          </div>
+        </div>
+        <%= comment.content %>
+      </div>
+    </div>
+  </li>
+</div>
