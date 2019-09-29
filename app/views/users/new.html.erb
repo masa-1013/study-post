@@ -14,6 +14,10 @@
         <%= f.label :password_confirmation, 'パスワード(確認)' %>
         <%= f.password_field :password_confirmation, class: "form-control" %>
       </div>
+      <div class="form-group">
+        <%= f.label :public, '勉強記録を全ユーザーに公開する' %>
+        <%= f.check_box :public %>
+      </div>
       <div class="row">
         <div class="col-sm-9">
           <%= f.submit "登録する", class:"btn btn-primary" %>

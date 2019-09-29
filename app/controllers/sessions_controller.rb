@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
   def destroy
     reset_session
     flash[:success] = EasySettings.logout_success
-    redirect_to root_url
+    redirect_to login_url
   end
 
   private

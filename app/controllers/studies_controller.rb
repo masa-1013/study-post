@@ -2,7 +2,7 @@ class StudiesController < ApplicationController
   before_action :set_study, only: [:show, :edit, :update, :destroy]
 
   def index
-    @studies = current_user.studies
+    @studies = Study.select_public_studies
   end
 
   def show

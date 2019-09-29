@@ -8,6 +8,8 @@ default: &default
   login_success: ログインしました。
   logout_success: ログアウトしました。
   not_login_message: ログインしてください。
+  user_public_true: 勉強記録を全ユーザーに公開しました。
+  user_public_false: 勉強記録を非公開にしました。
 
 development:
   <<: *default
