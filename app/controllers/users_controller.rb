@@ -27,8 +27,8 @@ class UsersController < ApplicationController
 
   def update
     if current_user.update(user_params)
-      flash[:success] = current_user.public ? EasySettings.user_public_true : EasySettings.user_public_false
-      redirect_to users_show_url
+      flash[:success] = EasySettings.user_update
+      redirect_to user_url
     else
       render :show
     end
@@ -37,6 +37,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :password, :password_confirmation, :public)
+    params.require(:user).permit(:name, :password, :password_confirmation, :public, :image)
   end
 end
