@@ -6,6 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+#ユーザー用データ
+10.times do |i|
+  User.create(name: "test#{i}", password: "test#{i}")
+end
+#コンボマスタ用データ
 Combmaster.create(tag_name: "資格取得")
 Combmaster.create(tag_name: "スキルアップ")
 Combmaster.create(tag_name: "TOEIC・TOEFL・英検・英会話")
@@ -15,3 +20,4 @@ Combmaster.create(tag_name: "学問")
 Combmaster.create(tag_name: "専門学校進学")
 Combmaster.create(tag_name: "大学受験合格")
 Combmaster.create(tag_name: "その他")
+

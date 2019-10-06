@@ -1,5 +1,10 @@
 {
   "name": "study-post",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "jquery": "^3.4.1"
+  },
+  "devDependencies": {
+    "browserify": "^16.5.0"
+  }
 }
