@@ -16,6 +16,12 @@ class Study < ApplicationRecord
       comments.user_id").select("comments.*, users.name").where("comments.study_id = ?", self.id).order(created_at: :desc)
   end
 
+  def can_show_study(current_user)
+    return true if self.user == current_user
+    return true if self.user.public
+    false
+  end
+
   private
 
   def validate_time_not_zero

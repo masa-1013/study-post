@@ -9,6 +9,11 @@ class StudiesController < ApplicationController
     @study = Study.find(params[:id])
     @comments = @study.select_comments_and_user_name
     @comment = Comment.new
+    if @study.can_show_study(current_user)
+      @study
+    else
+      redirect_to current_user
+    end
   end
 
   def new
