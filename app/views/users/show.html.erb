@@ -1,21 +1,42 @@
+<% myuser = @user.id == current_user.id %>
 <div class="row">
   <div class="col-sm-3">
-    <%= form_with model: @user, local: true do |f| %>
-      <%= image_tag @user.image.thumb.url %>
-      <%= f.label :image, "アイコン画像変更"%>
-      <%= f.file_field :image %>
-      <div class="form-group">
-        <%= f.label :public, '勉強記録を全ユーザーに公開する', class: "small" %>
-        <%= f.check_box :public %>
+    <h4 id="user_name"><%= @user.name %></h4>
+    <%= image_tag @user.image.thumb.url %>
+    <% if myuser %>
+      <%= form_with model: @user, local: true do |f| %>
+        <%= f.label :image, "アイコン画像変更"%>
+        <%= f.file_field :image %>
+        <div class="form-group">
+          <%= f.label :public, '勉強記録を全ユーザーに公開する', class: "small" %>
+          <%= f.check_box :public %>
+        </div>
+        <%= f.submit "更新", class:"btn btn-primary" %>
+      <% end %>
+    <% else %>
+      <div id="follow">
+        <% method = :post %>
+        <% button_value = "フォローする"%>
+        <% button_class = "btn btn-primary"%>
+        <% if @user.following?(current_user) %>
+          <% method = :delete %>
+          <% button_value = "フォロー解除"%>
+          <% button_class = "btn btn-danger"%>
+        <% end %>
+        <%= form_with scope: :relation, url: relationship_path, method: method do |f|%>
+          <%= f.hidden_field :followed_id, value: @user.id%>
+          <%= f.submit button_value, class:button_class %>
+        <% end %>
       </div>
-      <%= f.submit "更新", class:"btn btn-primary" %>
     <% end %>
   </div>
   <div class="col-sm-9">
-    <ul class='list-group'>
-      <% @user_studies.each do |study| %>
-        <%= render partial: "study", locals: { study: study } %>
-      <% end %>
-    </ul>
+    <% if myuser || @user.public %>
+      <ul class='list-group'>
+        <% @user_studies.each do |study| %>
+          <%= render partial: "study", locals: { study: study } %>
+        <% end %>
+      </ul>
+    <% end %>
   </div>
 </div>

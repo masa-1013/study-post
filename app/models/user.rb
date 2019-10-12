@@ -13,17 +13,7 @@ class User < ApplicationRecord
   mount_uploader :image, ImageUploader
 
   #ユーザーをフォローしているかどうか判定
-  def following?(other_user)
-    relationships.find_by_followed_id(other_user.id)
-  end
-
-  #ユーザーをフォローする
-  def follow!(other_user)
-    relationships.create!(followed_id: other_user.id)
-  end
-
-  #フォローを解除する
-  def unfollow!(other_user)
-    relationships.find_by_followed_id(other_user.id).destroy
-  end
+  def following?(current_user)
+    current_user.relationships.find_by_followed_id(self.id)
+  end  
 end

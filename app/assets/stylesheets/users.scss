@@ -1,3 +1,25 @@
 form .row .col-sm-3 {
   text-align: right;
 }
+
+#user_name {
+  text-align: center;
+  background-color: #FFF;
+  border-bottom: solid 3px #4ec4d3;
+}
+
+#follow {
+  margin-top: 10px;
+}
+
+img {
+  width: 100%;
+}
+
+.study .col-sm-1 {
+  padding: 0;
+}
+
+#follow input[type="submit"] {
+  width: 100%;
+}

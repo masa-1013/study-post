@@ -10,15 +10,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   process resize_to_fit: [800, 800]
 
   version :thumb do
-    process resize_to_fit: [280, 300]
-  end
-
-  version :thumbIcon do
-    process resize_to_fit: [85, 85]
-  end
-
-  version :thumbIconSmall do
-    process resize_to_fit: [60, 60]
+    process resize_to_fit: [255, 255]
   end
 
   def default_url(*args)

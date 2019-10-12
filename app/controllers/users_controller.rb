@@ -2,8 +2,10 @@ class UsersController < ApplicationController
   skip_before_action :login_required, only: [:new, :create]
 
   def show
-    @user_studies = current_user.studies
-    @user = current_user
+    @user = User.find_by(id: params[:id])
+    if @user == current_user || @user&.public
+      @user_studies = @user.studies
+    end
   end
 
   def new
