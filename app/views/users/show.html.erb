@@ -29,12 +29,15 @@
         <% end %>
       </div>
     <% end %>
+    <br>
+    <h6><%= @user.followed_count %> フォロー</h6>
+    <h6><span id="followers_count"><%= @user.followers_count %></span> フォロワー</h6>
   </div>
   <div class="col-sm-9">
     <% if myuser || @user.public %>
       <ul class='list-group'>
         <% @user_studies.each do |study| %>
-          <%= render partial: "study", locals: { study: study } %>
+          <%= render partial: "study", locals: { study: study, user: @user } %>
         <% end %>
       </ul>
     <% end %>

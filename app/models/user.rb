@@ -16,4 +16,12 @@ class User < ApplicationRecord
   def following?(current_user)
     current_user.relationships.find_by_followed_id(self.id)
   end  
+
+  def followed_count
+    self.followed_users.count
+  end
+
+  def followers_count
+    self.followers.count
+  end
 end

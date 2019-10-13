@@ -10,6 +10,13 @@ class Study < ApplicationRecord
       users.id and users.public = true").select("studies.*, users.name, users.image").order(updated_at: :desc)
   end
 
+  #フォローに表示する勉強記録の取得
+  def self.select_followed_studies(current_user)
+    Study.joins("inner join users on studies.user_id = 
+      users.id").select("studies.*, users.name, users.image").
+      where("studies.user_id IN (#{current_user.followed_user_ids.push(current_user.id).join(',')})").order(updated_at: :desc)
+  end
+
   #コメント情報をユーザー名付きで取得する
   def select_comments_and_user_name
     Comment.joins("inner join users on users.id =

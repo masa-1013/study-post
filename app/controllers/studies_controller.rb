@@ -2,7 +2,12 @@ class StudiesController < ApplicationController
   before_action :set_study, only: [:edit, :update, :destroy]
 
   def index
-    @studies = Study.select_public_studies
+    if (params[:follow] == "true")
+      @studies = Study.select_followed_studies(current_user)
+    else
+      @studies = Study.select_public_studies
+    end
+    
   end
 
   def show
