@@ -1,4 +1,4 @@
-jQuery(function($) {
+$(document).on("turbolinks:load", function() {
   $("#follow form").on("ajax:success", function() {
     var form = $("#follow form")
     var submit = $("#follow form input[type='submit']").remove()
