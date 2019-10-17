@@ -30,6 +30,11 @@ class Study < ApplicationRecord
     false
   end
 
+  #勉強記録からユーザー名を取得する
+  def select_username_from_study_user_id()
+    return User.find(self.user_id).name
+  end
+
   private
 
   def validate_time_not_zero

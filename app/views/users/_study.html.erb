@@ -7,7 +7,7 @@
       <div class="col-sm-11">
         <div class="d-flex w-100 justify-content-between">
           <h5 class="mb-1">  
-            <%= link_to "#{user.name}: #{Combmaster.select_tag_name(study.tag)}", study_path(study) %>
+            <%= user.name %> <%= Combmaster.select_tag_name(study.tag) %>
             <%= hidden_field_tag :study_id, study.id %>
           </h5>
           <small><%= convert_date_to_posttime(study.updated_at) %></small>

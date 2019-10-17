@@ -1,8 +1,17 @@
-<div class='study_show'>
-  <div class='study_show_header'>
+<div class="study_show">
+  <div class="study_show_header">
     <div class="row">
       <div class="col-sm-9">
-        <h4><%= current_user.name %>: <%= Combmaster.select_tag_name(@study.tag) %></h4>
+        <div class="row">
+          <div class="col-sm-2">
+            <div id="study_show_img">
+              <%= image_tag(@study.select_user_image_url) %>
+            </div>
+          </div>
+          <div class="col-sm-9 user_name_and_tag">
+            <%= link_to @study.select_username_from_study_user_id, user_path(@study.user_id)%>  <%= Combmaster.select_tag_name(@study.tag) %>
+          </div>
+        </div>
       </div>
       <div class="col-sm-3">
         <% if @study.user_id == current_user.id %>
@@ -11,22 +20,20 @@
         <% end %>
       </div>
     </div>
-    <small><%= convert_date_to_studydate(@study.date) %></small>
   </div>
-  <div class='study_show_content'>
+  <div class="study_show_content">
     <%= @study.content %>
   </div>
-  <div class='study_show_time'>
+  <div class="study_show_time">
     <div class="row">
-      <div class="col-sm-2">
-        <div class='card-body far fa-clock'>
-          <%= convert_time_to_studytime(@study.time) %>
-        </div>
+      <div class="col-sm-2 far fa-calendar-alt">
+          <%= convert_date_to_studydate(@study.date) %>
       </div>
-      <div class="col-sm-10">
-        <div class="far fa-comment-dots">
-          <%= @comments.to_a.count %>
-        </div>
+      <div class="col-sm-2 card-body far fa-clock">
+        <%= convert_time_to_studytime(@study.time) %>
+      </div>
+      <div class="col-sm-8 far fa-comment-dots">
+        <%= @comments.to_a.count %>
       </div>
     </div>
   </div>

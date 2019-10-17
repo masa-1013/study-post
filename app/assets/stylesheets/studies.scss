@@ -44,10 +44,20 @@
   text-align: right;
 }
 
-.fa-comment-dots {
+.fa-comment-dots, .fa-calendar-alt {
   margin-top: 20px;
 }
 
 img {
   width: 100%;
+}
+
+#study_show_img {
+  width: 90%;
+  height: 80%;
+}
+
+.user_name_and_tag {
+  padding-left: 0;
+  font-size: 1.5em;
 }
