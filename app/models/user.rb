@@ -9,8 +9,9 @@ class User < ApplicationRecord
   has_many :followed_users, through: :relationships, source: :followed
   has_many :reverse_relationships, foreign_key:"followed_id", class_name:"Relationship", dependent: :destroy
   has_many :followers, through: :reverse_relationships, source: :follower
+  has_one_attached :image
   #カラムの名前をmount_uploaderに指定
-  mount_uploader :image, ImageUploader
+  #mount_uploader :image, ImageUploader
 
   #ユーザーをフォローしているかどうか判定
   def following?(current_user)
@@ -23,5 +24,11 @@ class User < ApplicationRecord
 
   def followers_count
     self.followers.count
+  end
+
+  #ユーザーのアイコンが存在する時、それを返し
+  #なければデフォルト画像を返す
+  def return_user_image
+    return self.image.attached? ? self.image : EasySettings.default_user_image
   end
 end

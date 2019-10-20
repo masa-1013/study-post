@@ -9,6 +9,7 @@ default: &default
   logout_success: ログアウトしました。
   not_login_message: ログインしてください。
   user_update: ユーザーの設定を更新しました。
+  default_user_image: default_user.png
 
 development:
   <<: *default
