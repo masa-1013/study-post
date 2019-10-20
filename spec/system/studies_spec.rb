@@ -64,6 +64,19 @@ describe "勉強記録管理機能", type: :system do
         expect(page).not_to have_content "編集"
         expect(page).not_to have_content "削除"
       end
+
+      context "コメント投稿" do
+        before do 
+          visit study_path(public_user_study_2)
+        end
+
+        it "コメントを投稿してそれが、表示される" do
+          expect(page).not_to have_content "テストコメント"
+          fill_in "comment_content", with: "テストコメント"
+          click_button "コメント"
+          expect(page).to have_content "テストコメント"
+        end
+      end
     end
 
     context "プライベートユーザーがログインしている時" do
