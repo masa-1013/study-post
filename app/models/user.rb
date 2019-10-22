@@ -10,8 +10,6 @@ class User < ApplicationRecord
   has_many :reverse_relationships, foreign_key:"followed_id", class_name:"Relationship", dependent: :destroy
   has_many :followers, through: :reverse_relationships, source: :follower
   has_one_attached :image
-  #カラムの名前をmount_uploaderに指定
-  #mount_uploader :image, ImageUploader
 
   #ユーザーをフォローしているかどうか判定
   def following?(current_user)
