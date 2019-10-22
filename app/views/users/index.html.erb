@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col-sm-6 offset-sm-3">
+    <% @user.each do |user| %>
+      <div class="follow-user">
+        <div class="row">
+          <div class="col-sm-3">
+            <% if user.image.attached? %>
+              <%=  image_tag(user.image) %>
+            <% else %>
+              <%=  image_tag(EasySettings.default_user_image) %>
+            <% end %>
+          </div>
+          <div class="col-sm-9">
+            <h4><%= link_to user.name, user_path(user) %></h4>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

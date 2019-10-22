@@ -30,8 +30,8 @@
       </div>
     <% end %>
     <br>
-    <h6><%= @user.followed_count %> フォロー</h6>
-    <h6><span id="followers_count"><%= @user.followers_count %></span> フォロワー</h6>
+    <h6><%= @user.followed_count %><%= link_to "フォロー", users_path(name: @user.name) %></h6>
+    <h6><span id="followers_count"><%= @user.followers_count %></span><%= link_to "フォロワー", users_path(followers: true, name: @user.name) %></h6>
   </div>
   <div class="col-sm-9">
     <% if myuser || @user.public %>

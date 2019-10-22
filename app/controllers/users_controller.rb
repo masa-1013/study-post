@@ -1,6 +1,16 @@
 class UsersController < ApplicationController
   skip_before_action :login_required, only: [:new, :create]
 
+  def index
+    user = User.find_by(name: params[:name].to_s)
+    redirect_to root_url unless user
+    if (params[:followers] == "true")
+      @user = user.followers
+    else
+      @user = user.followed_users
+    end
+  end
+
   def show
     @user = User.find_by(id: params[:id])
     if @user == current_user || @user&.public

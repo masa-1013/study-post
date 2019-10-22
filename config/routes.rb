@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   post '/sign-in', to: 'users#create'
   post '/relationship', to: "relationships#create"
   delete '/relationship', to: "relationships#destroy"
-  resources :users, only: [:show, :edit, :update]
+  resources :users, only: [:index, :show, :edit, :update]
   resources :comments, only: [:create, :destroy]
   resources :studies
 end
