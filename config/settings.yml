@@ -8,6 +8,7 @@ default: &default
   login_success: ログインしました。
   logout_success: ログアウトしました。
   not_login_message: ログインしてください。
+  not_success_login: ユーザー名かパスワードが違います。
   user_update: ユーザーの設定を更新しました。
   default_user_image: default_user.png
 

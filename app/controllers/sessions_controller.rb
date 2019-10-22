@@ -12,6 +12,7 @@ class SessionsController < ApplicationController
       flash[:success] = EasySettings.login_success
       redirect_to @user
     else
+      flash.now[:danger] = EasySettings.not_success_login
       render :new
     end
   end
