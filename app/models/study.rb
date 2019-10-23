@@ -7,13 +7,13 @@ class Study < ApplicationRecord
   #タイムラインに表示する勉強記録の取得
   def self.select_public_studies
     Study.joins("inner join users on studies.user_id = 
-      users.id and users.public = true").select("studies.*, users.name, users.image").order(updated_at: :desc)
+      users.id and users.public = true").select("studies.*, users.name").order(updated_at: :desc)
   end
 
   #フォローに表示する勉強記録の取得
   def self.select_followed_studies(current_user)
     Study.joins("inner join users on studies.user_id = 
-      users.id").select("studies.*, users.name, users.image").
+      users.id").select("studies.*, users.name").
       where("studies.user_id IN (#{current_user.followed_user_ids.push(current_user.id).join(',')})").order(updated_at: :desc)
   end
 
