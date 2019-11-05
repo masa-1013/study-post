@@ -32,5 +32,3 @@ User.create(id: 3, name: "test", password: "test", public: true)
     Comment.create(content: "コメントサンプルデータ #{j}", user_id: j, study_id: i)
   end
 end
-
-#コメント
