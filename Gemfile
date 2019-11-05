@@ -69,3 +69,5 @@ gem 'debase'
 gem 'rails-i18n'
 gem 'jquery-rails'
 gem 'aws-sdk-s3', require: false
+gem 'chartkick'
+gem 'chartable'
