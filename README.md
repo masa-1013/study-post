@@ -1,24 +1,15 @@
-# README
+学習記録の投稿サービス
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+機能一覧
+・学習記録の投稿
+・投稿に対するコメント機能
+・ユーザーフォロー機能
+・ユーザーのアイコン画像アップロード機能
+・学習記録のグラフ表示機能（時間やカテゴリ別で）
+・ログイン、サインイン機能
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+使用している主な技術一覧
+・DB PostgreSQL
+・デプロイ AWS EC2 + unicorn + nginx
+・画像アップロード AWS S3
+・グラフ chartkick
